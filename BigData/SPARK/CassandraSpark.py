@@ -1,30 +1,16 @@
 from pyspark.sql import SparkSession
-m pyspark.sql import SparkSession
 from pyspark.sql import Row
 from pyspark.sql import functions
-# import warnings
+
 
 
 def parseInput(line):
     fields = line.split('|')
     return Row(userid = int(fields[0]), age = int(fields[1]), gender = fields[2], occupation = fields[3], zip = fields[4])
 
-if __name__ == "__main__":
-
-    # warnings.simplefilter(action='ignore')
-    # Create a SparkSession
-from pyspark.sql import Row
-from pyspark.sql import functions
-# import warnings
-
-
-def parseInput(line):
-    fields = line.split('|')
-    return Row(userid = int(fields[0]), age = int(fields[1]), gender = fields[2], occupation = fields[3], zip = fields[4])
 
 if __name__ == "__main__":
 
-    # warnings.simplefilter(action='ignore')
     # Create a SparkSession
     spark = SparkSession.builder.appName("CassandraIntegration").config("spark.cassandra.connection.host", "127.0.0.1").getOrCreate()
 
